@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+{% block contenido7 %}
+
+<h2>LISTADO DE PRODUCTOS</h2>
+<a href="{% url 'producto:producto_nuevo' %}">NUEVO</a>
+<a href="{% url 'producto:producto_tipo_listar' %}">TIPO-PRODUCTO</a>
+<table  class="cart-table responsive-table">
+  <tr>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>medidas</th>
+    <th>tipo_producto</th>
+    <th>Acción</th>
+  </tr>
+
+<ul>
+{% for producto in productos %}
+	<tr>
+		<td>{{ producto.nombre }}</td>
+	    <td>{{ producto.precio }}</td>
+	    <td>{{ producto.medidas }}</td>
+	    <td>{{ producto.tipo_producto }}</td>
+	    <td>
+	    	<a class="btn btn-primary" href="{% url 'producto:producto_editar' producto.id %}">editar</a>
+	    	<a class="btn btn-primary" href="{% url 'producto:producto_eliminar' producto.id %}">dar de baja</a>
+	    </td>
+
+			
+	</tr>
+    
+{% endfor %}
+</ul>
+
+</table>
+
+	
+	
+{% endblock %}

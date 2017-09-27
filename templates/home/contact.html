@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+{% block contenido1 %}
+
+<!-- Titlebar
+================================================== -->
+<section class="titlebar margin-bottom-0">
+<div class="container">
+	<div class="sixteen columns">
+		<h2>Contacto</h2>
+
+		<nav id="breadcrumbs">
+		
+		</nav>
+	</div>
+</div>
+</section>
+
+
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container fullwidth-element">
+
+	<!-- Google Maps -->
+	<section class="google-map-container">
+		<div >
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7960.234378954259!2d-79.21088477577399!3d-3.996320297995821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x38c1d263184a7212!2sEncofrados+%26+construcciones+%22GRANDA%22!5e0!3m2!1ses!2sec!4v1499701509737" width="1060" height="430" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</section>
+	<!-- Google Maps / End -->
+
+</div>
+<!-- Container / End -->
+
+
+<!-- Container -->
+<div class="container">
+<div class="four columns">
+
+	<!-- Information -->
+	<div class="widget margin-top-10">
+		<div class="accordion">
+
+			<!-- Section 1 -->
+			<h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="fa fa-thumb-tack"></i> Direccion</h3>
+			<div>
+				<ul class="contact-informations margin-top-0">
+					<li><span class="address">Manuel Carrión Pinzano</span></li>
+					<li><span class="address">Manuel Palacios Y Epiclachima</span></li>
+				</ul>
+			</div>
+
+			<!-- Section 2 -->
+			<h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="fa fa-user"></i> Contactos</h3>
+			<div>
+				<ul class="contact-informations second">
+					<li><i class="fa fa-phone"></i> <p>2575 236</p></li>
+					<li><i class="fa fa-phone"></i> <p>0998866491</p></li>
+					<li><i class="fa fa-envelope"></i> <p>mencofradosgranda@gmail.com</p></li>
+					<!--<li><i class="fa fa-globe"></i> <p>www.example.com</p></li>-->
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Social -->
+	<!--<div class="widget">
+		<h3 class="headline">Get Social</h3><span class="line margin-bottom-25"></span><div class="clearfix"></div>
+		<ul class="social-icons">
+			<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+			<li><a class="dribbble" href="#"><i class="icon-dribbble"></i></a></li>
+			<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+			<li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
+			<li><a class="forrst" href="#"><i class="icon-forrst"></i></a></li>
+			<li><a class="rss" href="#"><i class="icon-rss"></i></a></li>
+		</ul>
+		<div class="clearfix"></div>
+	<br>
+	</div> -->
+
+</div>
+
+<!-- Contact Form -->
+<div class="twelve columns">
+	<div class="extra-padding left">
+		<h3 class="headline">Enviar mensaje</h3><span class="line margin-bottom-25"></span><div class="clearfix"></div>
+
+		<!-- Contact Form -->
+		<section id="contact">
+
+			<!-- Success Message -->
+			<mark id="message"></mark>
+
+			<!-- Form -->
+			<form method="post" name="contactform" id="contactform">
+
+				<fieldset>
+
+					<div>
+						<label>Name:</label>
+						<input name="name" type="text" id="name" />
+					</div>
+
+					<div>
+						<label >Email: <span>*</span></label>
+						<input name="email" type="email" id="email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" />
+					</div>
+
+					<div>
+						<label>Message: <span>*</span></label>
+						<textarea name="comment" cols="40" rows="3" id="comment" spellcheck="true"></textarea>
+					</div>
+
+				</fieldset>
+				<div id="result"></div>
+				<input type="submit" class="submit" id="submit" value="Enviar" />
+				<div class="clearfix"></div>
+			</form>
+
+		</section>
+		<!-- Contact Form / End -->
+	</div>
+</div>
+</div>
+<!-- Container / End -->
+
+<div class="margin-top-50"></div>
+
+
+<!-- Footer
+================================================== -->
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+</div>
+
+
+<!-- Java Script
+================================================== -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="scripts/jquery.jpanelmenu.js"></script>
+<script src="scripts/jquery.themepunch.plugins.min.js"></script>
+<script src="scripts/jquery.themepunch.revolution.min.js"></script>
+<script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+<script src="scripts/jquery.magnific-popup.min.js"></script>
+<script src="scripts/hoverIntent.js"></script>
+<script src="scripts/superfish.js"></script>
+<script src="scripts/jquery.pureparallax.js"></script>
+<script src="scripts/jquery.pricefilter.js"></script>
+<script src="scripts/jquery.selectric.min.js"></script>
+<script src="scripts/jquery.royalslider.min.js"></script>
+<script src="scripts/SelectBox.js"></script>
+<script src="scripts/modernizr.custom.js"></script>
+<script src="scripts/waypoints.min.js"></script>
+<script src="scripts/jquery.flexslider-min.js"></script>
+<script src="scripts/jquery.counterup.min.js"></script>
+<script src="scripts/jquery.tooltips.min.js"></script>
+<script src="scripts/jquery.isotope.min.js"></script>
+<script src="scripts/puregrid.js"></script>
+<script src="scripts/stacktable.js"></script>
+<script src="scripts/custom.js"></script>
+
+<script src="scripts/jquery.gmaps.min.js"></script>
+
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+
+			$('#googlemaps').gMap({
+				maptype: 'ROADMAP',
+				scrollwheel: false,
+				zoom: 13,
+				markers: [
+					{
+						address: 'New York, 45 Park Avenue', // Your Adress Here
+						html: '<strong>Our Office</strong><br>45 Park Avenue, Apt. 303 </br>New York, NY 10016 ',
+						popup: true,
+					}
+				],
+			});
+
+		   });
+
+	})(this.jQuery);
+</script>
+
+
+<!-- Style Switcher
+================================================== -->
+<script src="scripts/switcher.js"></script>
+
+
+{% endblock %}

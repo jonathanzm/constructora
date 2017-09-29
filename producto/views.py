@@ -11,11 +11,11 @@ def producto_nuevo(request):
         form = ProductoForm(request.POST)   
         if form.is_valid():
         	producto= form.save()       
-            	return redirect('producto:producto_listar')
+        	return redirect('producto:producto_listar')
     else:
         form = ProductoForm()
 
-	return render(request, 'home/producto_nuevo_form.html',{'form': form})
+    return render(request, 'home/producto_nuevo_form.html', {'form': form})
 
 
 

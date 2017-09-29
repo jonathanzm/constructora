@@ -1,15 +1,12 @@
 from django.contrib import admin
 
-from .models import Cliente
-
 # Register your models here.
 
+from .models import Cliente
 
 class AdminCliente(admin.ModelAdmin):
-	list_display = ['cedula_identidad','telefono']
-	search_fields=['cedula_identidad']
+	list_display = ['nombres','apellidos','cedula','direccion','telefono']
+	search_fields=['nombre']
 	class Meta:
 	 	model= Cliente
 admin.site.register(Cliente,AdminCliente)
-
-

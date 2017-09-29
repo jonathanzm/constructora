@@ -13,8 +13,11 @@ urlpatterns = [
 
 
     url(r'^producto/', include('producto.urls' ,namespace='producto')),
+     # para  la app de cliente
 
     url(r'^cliente/', include('cliente.urls' ,namespace='cliente')),
+
+  
 
     
 ]

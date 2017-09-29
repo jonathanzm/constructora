@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+
+
+{% block contenido7 %}
+		<form method="POST"> {% csrf_token %}
+				<h2>¿DESEA DAR DE BAJA EL REGISTRO?</h2>
+				<button type="submit">Si, eliminar</button>
+				<a href="{% url 'producto:producto_listar' %}">Cancelar</a>
+		</form>
+
+{% endblock %}

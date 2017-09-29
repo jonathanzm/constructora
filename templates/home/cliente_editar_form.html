@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+
+{% block contenido7 %}
+
+<form method = "POST" action='' enctype='multipart/form-data'> {% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Guardar</button>
+		<a  class="btn btn-primary" href="{% url 'cliente:cliente_listar' %}"> Cancelar</a>
+</form>
+{% endblock %}

@@ -14,12 +14,17 @@ class TipoProducto(models.Model):
 
 class Producto(models.Model):
 
-	 nombre =models.CharField(max_length= 200)
-	 precio =models.CharField(max_length=30)
-	 medidas =models.CharField(max_length=30)
-	 tipo_producto =models.ForeignKey(TipoProducto)
+
+
+	nombre =models.CharField(max_length= 200)
+	precio_dia =models.CharField(max_length= 200)
+	precio_semanal =models.CharField(max_length= 200)
+	precio_mensual =models.CharField(max_length= 200)
+	descripcion =models.TextField(max_length=200)
+	stock =models.CharField(max_length= 200)
+	tipo_producto =models.ForeignKey(TipoProducto)
 
 	 
 
-	 def __str__(self):
-		return "%s - %s - %s -%s"% (self.nombre, self.precio ,self.medidas, self.tipo_producto)
+	def __str__(self):
+		return "%s - %s - %s - %s - %s - %s -%s"%(self.nombre, self.precio_dia, self.precio_semanal, self.precio_mensual ,self.descripcion, self.stock, self.tipo_producto)

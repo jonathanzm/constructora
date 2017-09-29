@@ -13,18 +13,25 @@ ENCOFRADOS
 <table  class="cart-table responsive-table">
   <tr>
     <th>Nombre</th>
-    <th>Precio</th>
-    <th>medidas</th>
-    <th>tipo_producto</th>
-    <th>Acción</th>
+    <th>Precio dia</th>
+    <th>Precio semanal</th>
+    <th>Precio mensual</th>
+    <th>Descripcion</th>
+    <th>Stock</th>
+    <th>Tipo producto</th>
+    <th>Acción</th>                         
+	
   </tr>
 
 <ul>
 {% for producto in productos %}
 	<tr>
 		<td>{{ producto.nombre }}</td>
-	    <td>{{ producto.precio }}</td>
-	    <td>{{ producto.medidas }}</td>
+	    <td>{{ producto.precio_dia }}</td>
+	    <td>{{ producto.precio_semanal }}</td>
+	    <td>{{ producto.precio_mensual }}</td>
+	    <td>{{ producto.descripcion }}</td>
+	    <td>{{ producto.stock }}</td>
 	    <td>{{ producto.tipo_producto }}</td>
 	    <td>
 	    	<a class="btn btn-primary" href="{% url 'producto:producto_editar' producto.id %}">editar</a>

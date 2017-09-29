@@ -83,8 +83,10 @@ WSGI_APPLICATION = 'Constructora.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'constructora',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'constructora_db',
+        # 'NAME': 'constructora',
         'USER': 'root',
         'PASSWORD': 'cuarto',
         'HOST': '127.0.0.1',
@@ -130,3 +132,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# AUTH_PROFILE_MODULE = 'cliente.Cliente'
+AUTH_USER_MODEL = 'cliente.Cliente'

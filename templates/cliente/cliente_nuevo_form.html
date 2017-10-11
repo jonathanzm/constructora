@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+{% block contenido7 %}
+
+<h2>Creacion de cliente</h2>
+	
+	<form  method="post" class="form">
+	  {% csrf_token %}
+	  {% bootstrap_form form %}
+	  {% buttons %}
+	    <button type="submit" class="btn btn-primary">
+	      {% bootstrap_icon "star" %} Guardar
+	    </button>
+	     <a  class="btn btn-primary" href="{% url 'cliente:cliente_listar' %}"> Cancelar</a>
+
+	  
+	</form>
+	  {% endbuttons %}
+	  
+	  
+	</form>
+	 
+
+{% endblock %}

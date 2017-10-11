@@ -13,7 +13,7 @@ def mostrar_quienes(request):
 	return render(request, 'home/elements.html',{})
 
 def mostrar_carro(request):
-	return render(request, 'home/shopping-cart.html',{})
+	return render(request, 'producto/shopping-cart.html',{})
 
 def mostrar_maquinaria(request):
 	return render(request, 'home/maquinaria.html',{})
@@ -31,3 +31,5 @@ def mostrar_login(request):
 
 def mostrar_alquiler(request):
 	return render(request, 'aplicacion/index1.html',{})
+
+# administrador

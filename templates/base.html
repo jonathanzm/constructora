@@ -135,10 +135,10 @@
 
 			<!-- Button -->
 			<div class="cart-btn">
-				<a href="#" class="button adc">$178.00</a>
+				<a href="{% url 'producto:get_cart' %}" class="button adc">Cart</a>
 			</div>
 
-			<div class="cart-list">
+			<!--<div class="cart-list">
 
 			<div class="arrow"></div>
 
@@ -163,13 +163,13 @@
 					</ul>
 
 				<div class="cart-buttons button">
-					<a href="{% url 'home:mostrar_carro' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a>
+					<a href="{% url 'producto:get_cart' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a>
 					
 				</div>
 				<div class="clearfix">
 
 				</div>
-			</div>
+			</div>-->
 
 		</div>
 
@@ -357,18 +357,9 @@
 <div id="footer-bottom">
 
 	<!-- Container -->
-	<div class="container">
+	
 
-		<div class="eight columns">© Copyright 2014 by <a href="#">trizzy</a>. All Rights Reserved.</div>
-		<div class="eight columns">
-			<ul class="payment-icons">
-				<li><img src="images/visa.png" alt="" /></li>
-				<li><img src="images/mastercard.png" alt="" /></li>
-				<li><img src="images/skrill.png" alt="" /></li>
-				<li><img src="images/moneybookers.png" alt="" /></li>
-				<li><img src="images/paypal.png" alt="" /></li>
-			</ul>
-		</div>
+		
 
 	</div>
 	<!-- Container / End -->

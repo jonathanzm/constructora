@@ -88,10 +88,10 @@ ENCOFRADOS
 
 			<!-- Button -->
 			<div class="cart-btn">
-				<a href="#" class="button adc">$178.00</a>
+				<a href="{% url 'producto:get_cart' %}" class="button adc">$178.00</a>
 			</div>
 
-			<div class="cart-list">
+			<!--<div class="cart-list">
 
 			<div class="arrow"></div>
 
@@ -116,13 +116,13 @@ ENCOFRADOS
 					</ul>
 
 				<div class="cart-buttons button">
-					<a href="{% url 'home:mostrar_carro' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a> 
+					<a href="{% url 'producto:get_cart' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a> 
 					
 				</div>
 				<div class="clearfix">
 
 				</div>
-			</div>
+			</div>-->
 
 		</div>
 
@@ -170,11 +170,11 @@ ENCOFRADOS
 
 
 				<li class="dropdown">
-					<a href="#">CATEGORIa</a>
-					<ul>
+					<a href="{% url 'producto:producto_listar' %}">PRODUCTOS</a>
+					<!--<ul>
 						<li><a href="{% url 'home:mostrar_herramienta' %}">Herramienta</a></li>
 						<li><a href="{% url 'home:mostrar_maquinaria' %}">Maquinaria</a></li>
-					</ul> 
+					</ul> -->
 				</li>
 
 				<li class="dropdown">
@@ -352,7 +352,7 @@ ENCOFRADOS
 <div id="footer-bottom">
 
 	<!-- Container -->
-	<div class="container">
+	<!--<div class="container">
 
 		<div class="eight columns">© Copyright 2014 by <a href="#">trizzy</a>. All Rights Reserved.</div>
 		<div class="eight columns">

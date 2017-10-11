@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+	<style media="screen">
+		form{
+			width: 25%;
+			margin: 0 auto;
+
+		}
+
+		
+			
+		}
+
+	</style>
+
+  
+  <form method="post">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    
+
+    <input type="submit"  value="Login" />
+    <h3> <a href="{% url 'registro' %}"> Registrate Aquí</h3>
+    
+  </form>
+{% endblock %}

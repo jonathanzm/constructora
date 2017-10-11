@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,10 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'bootstrap3',
+    'cart',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'producto.apps.ProductoConfig',
     'cliente.apps.ClienteConfig',
+    'usuario.apps.UsuarioConfig',
+    'factura.apps.FacturaConfig',
+    'reserva.apps.ReservaConfig',
+  
+
     
 
 ]
@@ -84,9 +91,9 @@ WSGI_APPLICATION = 'Constructora.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'constructora_db',
+         'ENGINE': 'django.db.backends.mysql',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'constructora',
         # 'NAME': 'constructora',
         'USER': 'root',
         'PASSWORD': 'cuarto',
@@ -135,4 +142,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # AUTH_PROFILE_MODULE = 'cliente.Cliente'
-AUTH_USER_MODEL = 'cliente.Cliente'
+#AUTH_USER_MODEL = 'cliente.Cliente'
+LOGIN_URL= '/login/'
+

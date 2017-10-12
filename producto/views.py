@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django import forms
+from django.shortcuts import render,redirect
 # Create your views here.
 from .forms import ProductoForm, TipoProductoForm
 from .models import Producto, TipoProducto
@@ -93,7 +94,7 @@ def producto_tipo_editar(request, id_tipo):
 
 
 # agregar a carrito
-@login_required()
+#@login_required()
 def add_to_cart(request, id_producto, quantity):
     product = Producto.objects.get(id=id_producto)
     cart = Cart(request)
@@ -101,6 +102,7 @@ def add_to_cart(request, id_producto, quantity):
     cart.add(product, product.precio_dia, quantity)
     response= HttpResponseRedirect(request.GET.get('next'))
     return response
+    
 #@login_required()
 def remove_from_cart(request, id_producto):
     product = Producto.objects.get(id=id_producto)
@@ -108,11 +110,12 @@ def remove_from_cart(request, id_producto):
     cart.remove(product)
     response= HttpResponseRedirect(request.GET.get('next'))
     return response
+
+
 #@login_required()
 def get_cart(request):
     cart= Cart(request)
     context={
         'cart': cart
-
     }
     return render(request, 'producto/shopping-cart.html', context)

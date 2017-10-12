@@ -12,6 +12,15 @@ urlpatterns = [
 	url(r'^herramientas/$', views.mostrar_herramienta, name='mostrar_herramienta'),
 	url(r'^detalle/$', views.mostrar_detalle, name='mostrar_detalle'),
 	url(r'^login/$', views.mostrar_login , name='mostrar_login'),
+
+	# admin
+
+	#url(r'^administrador/$', views.mostrar_admin, name='mostrar_admin'),
+
+
+
+
+
 	#url(r'^register/$', views.UserFormView.as_view(), name='register'),
 	#url(r'^new_user/$', views.usuario),
 	

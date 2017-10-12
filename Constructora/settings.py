@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -142,4 +143,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # AUTH_PROFILE_MODULE = 'cliente.Cliente'
+
 #AUTH_USER_MODEL = 'cliente.Cliente'
+
+#AUTH_USER_MODEL = 'cliente.Cliente'
+LOGIN_URL= '/login/'
+

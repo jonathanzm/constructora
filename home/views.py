@@ -31,3 +31,5 @@ def mostrar_login(request):
 
 def mostrar_alquiler(request):
 	return render(request, 'aplicacion/index1.html',{})
+
+# administrador

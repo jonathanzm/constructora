@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+{% block contenido7 %}
+
+<h2>LISTADO DE CLIENTES</h2>
+<a href="{% url 'cliente:cliente_nuevo' %}">NUEVO</a>
+<table  class="cart-table responsive-table">
+  <tr>
+    <th>username</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Cedula</th>
+    <th>Direccion</th>
+    <th>telefono</th>
+    <th>Acción</th>                         
+	
+  </tr>
+
+<ul>
+{% for cliente in clientes %}
+	<tr>
+		<td>{{ cliente.username }}</td>
+		<td>{{ cliente.nombre }}</td>
+		<td>{{ cliente.apellidos }}</td>
+		<td>{{ cliente.cedula }}</td>
+		<td>{{ cliente.direccion }}</td>
+		<td>{{ cliente.telefono }}</td>
+	    
+	    <td>
+	    	<a class="btn btn-primary" href="{% url 'cliente:cliente_editar' cliente.id %}">editar</a>
+	    	<a class="btn btn-primary" href="{% url 'cliente:cliente_eliminar' cliente.id %}">dar de baja</a>
+	    </td>
+
+			
+	</tr>
+    
+{% endfor %}
+</ul>
+
+</table>
+
+	
+	
+{% endblock %}

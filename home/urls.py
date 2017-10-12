@@ -15,6 +15,7 @@ urlpatterns = [
 	#url(r'^register/$', views.UserFormView.as_view(), name='register'),
 	#url(r'^new_user/$', views.usuario),
 	
+	
 	# usuarios
 		
 	#url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

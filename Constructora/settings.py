@@ -31,16 +31,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'bootstrap3',
+    'cart',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'producto.apps.ProductoConfig',
     'cliente.apps.ClienteConfig',
+    'usuario.apps.UsuarioConfig',
+    'factura.apps.FacturaConfig',
+    'reserva.apps.ReservaConfig',
+  
+
     
 
 ]
@@ -84,9 +91,9 @@ WSGI_APPLICATION = 'Constructora.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'constructora_db',
+         'ENGINE': 'django.db.backends.mysql',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'constructora',
         # 'NAME': 'constructora',
         'USER': 'root',
         'PASSWORD': 'cuarto',
@@ -118,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -135,4 +142,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # AUTH_PROFILE_MODULE = 'cliente.Cliente'
-AUTH_USER_MODEL = 'cliente.Cliente'
+#AUTH_USER_MODEL = 'cliente.Cliente'

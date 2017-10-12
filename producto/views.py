@@ -1,9 +1,10 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django import forms
 # Create your views here.
 from .forms import ProductoForm, TipoProductoForm
 from .models import Producto, TipoProducto
-
+from cart.cart import Cart
 
 
 def producto_nuevo(request):
@@ -15,7 +16,7 @@ def producto_nuevo(request):
     else:
         form = ProductoForm()
 
-    return render(request, 'home/producto_nuevo_form.html', {'form': form})
+    return render(request, 'producto/producto_nuevo_form.html', {'form': form})
 
 
 
@@ -25,7 +26,7 @@ def producto_listar(request):
 			'productos': productos,
 
 	}
-	return render(request,'home/producto_lista_form.html',context)
+	return render(request,'producto/producto_lista_form.html',context)
 
 def producto_eliminar(request, id_producto):
         obj_producto = Producto.objects.get(id=id_producto)
@@ -33,7 +34,7 @@ def producto_eliminar(request, id_producto):
                 obj_producto.delete()
                 return redirect('producto:producto_listar')
 
-        return render(request, 'home/producto_eliminar_form.html', {'producto':obj_producto})
+        return render(request, 'producto/producto_eliminar_form.html', {'producto':obj_producto})
 
 def producto_editar(request, id_producto):
     producto= Producto.objects.get(id=id_producto)
@@ -45,7 +46,7 @@ def producto_editar(request, id_producto):
     else:
         form = ProductoForm(instance=producto)
 
-    return render(request, 'home/producto_editar_form.html',{'form': form})
+    return render(request, 'producto/producto_editar_form.html',{'form': form})
 
 
 # TIPO PRODUCTO
@@ -59,7 +60,7 @@ def producto_tipo_nuevo(request):
     else:
         form = TipoProductoForm()
 
-    return render(request, 'home/producto_tipo_form.html',{'form': form})
+    return render(request, 'producto/producto_tipo_form.html',{'form': form})
 
 
 def producto_tipo_listar(request):
@@ -68,7 +69,7 @@ def producto_tipo_listar(request):
             'tipo_producto': tipo_producto,
 
     }
-    return render(request,'home/producto_tipo_lista_form.html',context)
+    return render(request,'producto/producto_tipo_lista_form.html',context)
 
 def producto_tipo_eliminar(request, id_tipo):
         obj_tipo = TipoProducto.objects.get(id=id_tipo)
@@ -76,7 +77,7 @@ def producto_tipo_eliminar(request, id_tipo):
                 obj_tipo.delete()
                 return redirect('producto:producto_listar')
 
-        return render(request, 'home/producto_tipo_eliminar_form.html', {'producto':obj_tipo})
+        return render(request, 'producto/producto_tipo_eliminar_form.html', {'producto':obj_tipo})
 
 def producto_tipo_editar(request, id_tipo):
     tipo= TipoProducto.objects.get(id=id_tipo)
@@ -88,5 +89,30 @@ def producto_tipo_editar(request, id_tipo):
     else:
         form = TipoProductoForm(instance=tipo)
 
-    return render(request, 'home/producto_tipo_editar_form.html',{'form': form})
+    return render(request, 'producto/producto_tipo_editar_form.html',{'form': form})
 
+
+# agregar a carrito
+@login_required()
+def add_to_cart(request, id_producto, quantity):
+    product = Producto.objects.get(id=id_producto)
+    cart = Cart(request)
+    
+    cart.add(product, product.precio_dia, quantity)
+    response= HttpResponseRedirect(request.GET.get('next'))
+    return response
+#@login_required()
+def remove_from_cart(request, id_producto):
+    product = Producto.objects.get(id=id_producto)
+    cart = Cart(request)
+    cart.remove(product)
+    response= HttpResponseRedirect(request.GET.get('next'))
+    return response
+#@login_required()
+def get_cart(request):
+    cart= Cart(request)
+    context={
+        'cart': cart
+
+    }
+    return render(request, 'producto/shopping-cart.html', context)

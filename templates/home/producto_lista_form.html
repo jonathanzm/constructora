@@ -8,10 +8,10 @@ ENCOFRADOS
 {% block contenido7 %}
 
 <h2>LISTADO DE PRODUCTOS</h2>
-<a href="{% url 'producto:producto_nuevo' %}">NUEVO</a>
-<a href="{% url 'producto:producto_tipo_listar' %}">TIPO-PRODUCTO</a>
+<!--<a href="{% url 'producto:producto_nuevo' %}">NUEVO</a>
+<a href="{% url 'producto:producto_tipo_listar' %}">TIPO-PRODUCTO</a>-->
 <table  class="cart-table responsive-table">
-  <tr>
+<!--  <tr>
     <th>Nombre</th>
     <th>Precio dia</th>
     <th>Precio semanal</th>
@@ -21,30 +21,40 @@ ENCOFRADOS
     <th>Tipo producto</th>
     <th>Acción</th>                         
 	
-  </tr>
+  </tr>-->
 
 <ul>
 {% for producto in productos %}
-	<tr>
-		<td>{{ producto.nombre }}</td>
-	    <td>{{ producto.precio_dia }}</td>
-	    <td>{{ producto.precio_semanal }}</td>
-	    <td>{{ producto.precio_mensual }}</td>
-	    <td>{{ producto.descripcion }}</td>
-	    <td>{{ producto.stock }}</td>
-	    <td>{{ producto.tipo_producto }}</td>
-	    <td>
-	    	<a class="btn btn-primary" href="{% url 'producto:producto_editar' producto.id %}">editar</a>
-	    	<a class="btn btn-primary" href="{% url 'producto:producto_eliminar' producto.id %}">dar de baja</a>
-	    </td>
 
-			
-	</tr>
-    
+
+<div class="products">
+	<div class="four columns">
+			<figure class="product">
+				<div class="mediaholder">
+					
+						<img alt="" src="{% static 'images/sierra.jpg' %}"/>
+						<div class="cover">
+							<img alt="" src="{% static 'images/sierra.jpg' %}"/>
+						</div>
+					</a>
+					<a href="{% url 'producto:add_to_cart' producto.id 1 %}?next={{ request.get_full_path }}" class="product-button"><i class="fa fa-shopping-cart"></i> Alquilar</a>
+				</div>
+
+				<!--<a href="variable-product-page.html">-->
+					<section>
+						<!--<span class="product-category">{{producto.nombre}}</span>-->
+						<h5>{{producto.nombre}}</h5>
+						<h5>{{producto.precio_dia}}</h5>
+						
+						<span class="product-price">{{producdo.precio_dia}}</span>
+					</section>
+				</a>
+			</figure>
+		</div>
+</div>
 {% endfor %}
 </ul>
 
-</table>
 
 	
 	

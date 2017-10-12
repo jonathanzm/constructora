@@ -88,10 +88,10 @@ ENCOFRADOS
 
 			<!-- Button -->
 			<div class="cart-btn">
-				<a href="#" class="button adc">$178.00</a>
+				<a href="{% url 'producto:get_cart' %}" class="button adc">Cart</a>
 			</div>
 
-			<div class="cart-list">
+			<!--<div class="cart-list">
 
 			<div class="arrow"></div>
 
@@ -116,13 +116,13 @@ ENCOFRADOS
 					</ul>
 
 				<div class="cart-buttons button">
-					<a href="{% url 'home:mostrar_carro' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a> 
+					<a href="{% url 'producto:get_cart' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a> 
 					
 				</div>
 				<div class="clearfix">
 
 				</div>
-			</div>
+			</div>-->
 
 		</div>
 
@@ -170,11 +170,11 @@ ENCOFRADOS
 
 
 				<li class="dropdown">
-					<a href="#">CATEGORIa</a>
-					<ul>
+					<a href="{% url 'producto:producto_listar' %}">PRODUCTOS</a>
+					<!--<ul>
 						<li><a href="{% url 'home:mostrar_herramienta' %}">Herramienta</a></li>
 						<li><a href="{% url 'home:mostrar_maquinaria' %}">Maquinaria</a></li>
-					</ul> 
+					</ul> -->
 				</li>
 
 				<li class="dropdown">
@@ -201,7 +201,7 @@ ENCOFRADOS
 				<li class="dropdown">
 					<a href="#">Administrar</a>
 					<ul>
-						<li><a href="{% url 'producto:producto_listar' %}">Productos</a></li>
+						<li><a href="{% url 'producto:producto_nuevo' %}">Productos</a></li>
 						<li><a href="{% url 'cliente:cliente_listar' %}">Clientes</a></li>
 					</ul> 
 				</li>
@@ -244,9 +244,9 @@ ENCOFRADOS
 
 				<!-- Slide 2  -->
 				<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500" >
-					<img src="{% static 'images/slider.jpg' %}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+					<img src="{% static 'images/portada1.jpg' %}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
  					<div class="caption sfb fadeout" data-x="145" data-y="170" data-speed="400" data-start="800"  data-easing="Power4.easeOut">
-						<h2>Dress Sharp</h2>
+						<h2></h2>
 						
 					</div>
 				</li>
@@ -254,9 +254,9 @@ ENCOFRADOS
 
 				<!-- Slide 3  -->
 				<li data-transition="fadetotopfadefrombottom" data-slotamount="7" data-masterspeed="1000">
- 					<img src="{% static 'images/concretera.jpg' %}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+ 					<img src="{% static 'images/portada2.jpg' %}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
  					<div class="caption dark sfb fadeout" data-x="850" data-y="170" data-speed="400" data-start="800"  data-easing="Power4.easeOut">
-						<h2>New In</h2>
+						<h2></h2>
 						
 					</div>
 				</li>
@@ -264,9 +264,17 @@ ENCOFRADOS
 				<!-- Slide 4  -->
 
 				<li data-transition="fadetotopfadefrombottom" data-slotamount="7" data-masterspeed="1000">
- 					<img src="{% static 'images/concretera.jpg' %}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+ 					<img src="{% static 'images/portada4.jpg' %}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
  					<div class="caption dark sfb fadeout" data-x="850" data-y="170" data-speed="400" data-start="800"  data-easing="Power4.easeOut">
-						<h2>New In</h2>
+						<h2></h2>
+						
+					</div>
+				</li>
+
+				<li data-transition="fadetotopfadefrombottom" data-slotamount="7" data-masterspeed="1000">
+ 					<img src="{% static 'images/portada5.jpg' %}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+ 					<div class="caption dark sfb fadeout" data-x="850" data-y="170" data-speed="400" data-start="800"  data-easing="Power4.easeOut">
+						<h2></h2>
 						
 					</div>
 				</li>
@@ -352,7 +360,7 @@ ENCOFRADOS
 <div id="footer-bottom">
 
 	<!-- Container -->
-	<div class="container">
+	<!--<div class="container">
 
 		<div class="eight columns">© Copyright 2014 by <a href="#">trizzy</a>. All Rights Reserved.</div>
 		<div class="eight columns">

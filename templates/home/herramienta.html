@@ -40,6 +40,11 @@ ENCOFRADOS
 	<!-- Products -->
 	<div class="products">
 
+	{% for producto in productos %}
+		{{producto.nombre}} 	
+	
+
+
 		<!-- Product #1 -->
 		<div class="four columns">
 			<figure class="product">
@@ -55,13 +60,15 @@ ENCOFRADOS
 
 				<a href="variable-product-page.html">
 					<section>
-						<span class="product-category">Skirts</span>
-						<h5>Brown Mini Skirt</h5>
+						<span class="product-category">{{producto.nombre}}</span>
+						<h5>{{producto.nombre}}</h5>
 						<span class="product-price">$79.00</span>
 					</section>
 				</a>
 			</figure>
 		</div>
+
+		{% endfor %}
 
 
 		<!-- Product #2 -->

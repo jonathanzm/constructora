@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+ENCOFRADOS 
+{% endblock title %}
+
+{% block contenido1 %}
+<!-- Titlebar
+================================================== -->
+<section class="titlebar">
+<div class="container">
+	<div class="sixteen columns">
+		<h2>Shopping Cart</h2>
+		<h3>Añadir producto</h3>
+		
+		<nav id="breadcrumbs">
+			<ul>
+				<a href="{% url 'producto:producto_listar' %}" class="button color cart-btns proceed">Añadir</a>
+				
+			</ul>
+		</nav>
+	</div>
+</div>
+</section>
+
+
+
+<div class="container cart">
+
+	<div class="sixteen columns">
+		<!--<table>
+			<tr>
+				<th>Item</th>
+				<th>Descripcion</th>
+				<th>Precio</th>
+				<th>Cantidad</th>
+				<th>Total</th>
+				<th></th>
+			</tr>
+			{% for item in cart %}
+			<tr>
+				<td>{{item.product.nombre}}</td>
+				<td>{{item.product.}}</td>
+				<td>{{item.unit_price}}</td>
+				<td>{{item.quantity}}</td>
+				<td>{{item.total_price}}</td>
+			</tr>
+			{% endfor %}
+		</table>-->	
+		<!-- Cart -->
+		<table class="cart-table responsive-table">
+
+			<tr>
+				<th>Item</th>
+				<th>Descripcion</th>
+				<th>Precio</th>
+				<th>Cantidad</th>
+				<th>Total</th>
+				<th>Eliminar</th>
+			</tr>
+			{% for item in cart %}		
+			<!-- Item #1 -->
+			<tr>
+				<td>{{item.product.nombre}}</td>
+				<td >{{item.product.descripcion}}</td>
+				<td id="price{{item.product.id}}">{{item.unit_price}}</td>
+				<td>
+					<form action='#'>
+						<div  item_id="{{item.product.id }}" class="qtyminus"></div>
+						<input id="qty_product{{item.product.id }}" type='text' name="quantity" value='1' class="qty" />
+						<div  item_id="{{item.product.id }}" class="qtyplus"></div>
+					</form>
+				</td>
+				<td id="total_item{{item.product.id }}" class="total_item "> {{item.total_price}} </td>
+			
+				<td><a href="{% url 'producto:remove_from_cart' item.product.id %}?next={{ request.get_full_path }}" class="cart-remove"></a></td>
+			</tr>
+			{% endfor %}
+		
+
+		</table>
+
+			<!-- Apply Coupon Code / Buttons -->
+			<table class="cart-table bottom">
+
+				<tr>
+				<th>
+					<div class="cart-btns">
+						<a href="{% url 'home:mostrar_login'%}" class="button color cart-btns proceed">Reservar</a>
+					</div>
+				</th>
+				</tr>
+
+			</table>
+	</div>
+
+
+	<!-- Cart Totals -->
+	<div class="eight columns cart-totals">
+		<h3 class="headline">Total</h3><span class="line"></span>Nota: los precios no incluyen iva<div class="clearfix"></div>
+
+		<table class="cart-table margin-top-5">
+
+			<tr>
+				<th>Total Reserva</th>
+				<td id= "totales"><strong></strong></td>
+			</tr>
+
+			<!--<tr>
+				<th>Shipping and Handling</th>
+				<td>Free Shipping</td>
+			</tr>
+
+			<tr>
+				<th>Order Total</th>
+				<td><strong>$178.00</strong></td>
+			</tr> -->
+
+		</table>
+		<br>
+		<!-- <a href="#" class="calculate-shipping"><i class="fa fa-arrow-circle-down"></i> Calculate Shipping</a> -->
+	</div>
+
+</div>
+
+
+<div class="margin-top-40"></div>
+<script type="text/javascript">
+	
+function Calcular_totales() {
+		var total_item= 0;
+		$(".total_item").each(function(){
+			console.log($(this).text());
+			total_item+=+$(this).text();
+		});
+		console.log("total de los item"+total_item);
+		$("#totales").text(total_item.toFixed(2));
+	 
+}
+
+	//calculos de totales por item 
+	$(".qtyminus").click(function(){
+		var item_id= $(this).attr("item_id");
+		console.log(item_id);
+		var price=$("#price"+item_id).text();
+		console.log("precio="+price)
+		var cuantity= $("#qty_product"+item_id).val()-1;
+		console.log("cantidad"+ cuantity);
+		$("#qty_product"+item_id).val(cuantity);
+		var total= cuantity*price;
+		$("#total_item"+item_id).text(total);
+		Calcular_totales();
+	});
+
+	$(".qtyplus").click(function(){
+		var item_id= $(this).attr("item_id");
+		console.log(item_id);
+		var price=$("#price"+item_id).text();
+		console.log("precio="+price)
+		var cuantity= +$("#qty_product"+item_id).val()+1;
+		console.log("cantidad"+ cuantity);
+		$("#qty_product"+item_id).val(cuantity);
+		var total= cuantity*price;
+		$("#total_item"+item_id).text(total);
+		Calcular_totales();
+	});
+
+</script>
+
+{% endblock %}

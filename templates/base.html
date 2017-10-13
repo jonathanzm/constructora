@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Encofrados & Construcciones "GRANDA"</title>
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+
+ 
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/colors/green.css' %}" id="colors">
+{% endblock %}
+
+{% block scripts %}
+<!-- Java Script
+================================================== -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{% static 'scripts/jquery.jpanelmenu.js' %}"></script>
+<script src="{% static 'scripts/jquery.themepunch.plugins.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.themepunch.showbizpro.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'scripts/hoverIntent.js' %}"></script>
+<script src="{% static 'scripts/superfish.js' %}"></script>
+<script src="{% static 'scripts/jquery.pureparallax.js' %}"></script>
+<script src="{% static 'scripts/jquery.pricefilter.js' %}"></script>
+<script src="{% static 'scripts/jquery.selectric.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.royalslider.min.js' %}"></script>
+<script src="{% static 'scripts/SelectBox.js' %}"></script>
+<script src="{% static 'scripts/modernizr.custom.js' %}"></script>
+<script src="{% static 'scripts/waypoints.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.flexslider-min.js' %}"></script>
+<script src="{% static 'scripts/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.tooltips.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.isotope.min.js' %}"></script>
+<script src="{% static 'scripts/puregrid.js' %}"></script>
+<script src="{% static 'scripts/stacktable.js' %}"></script>
+<script src="{% static 'scripts/custom.js' %}"></script>
+
+{% endblock%}
+	
+</head>
+<body>
+{% block header %}
+{% load bootstrap3 %}
+
+		<!-- Top Bar
+================================================== -->
+<div id="top-bar">
+	<div class="container">
+
+		<!-- Top Bar Menu -->
+		<div class="ten columns">
+			<ul class="top-bar-menu">
+				<li><i class="fa fa-phone"></i> 2575 236</li>
+				<li><i class="fa fa-envelope"></i> <a href="#">encofradosgranda@gmail.com</a></li>
+				<li>
+					<!--<div class="top-bar-dropdown">
+						<span>English</span>
+						<ul class="options">
+							<li><div class="arrow"></div></li>
+							<li><a href="#">English</a></li>
+							<li><a href="#">Polish</a></li>
+							<li><a href="#">Deutsch</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="top-bar-dropdown">
+						<span>USD</span>
+						<ul class="options">
+							<li><div class="arrow"></div></li>
+							<li><a href="#">USD</a></li>
+							<li><a href="#">PLN</a></li>
+							<li><a href="#">EUR</a></li>
+						</ul>
+					</div>-->
+				</li>
+			</ul>
+		</div>
+
+		<!-- Social Icons -->
+		<div class="six columns">
+			<ul class="social-icons top-bar-menu">
+				<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+				<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+				<li><a class="dribbble" href="#"><i class="icon-dribbble"></i></a></li>
+				<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
+				<li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
+
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<!-- Header
+================================================== -->
+<div class="container">
+
+
+	<!-- Logo -->
+	<div class="four columns">
+		<div id="logo">
+			<h1><a href="#"><img src="{% static 'images/fondo.png' %}" alt="Trizzy" /></a>Construcciones Granda</h1>
+		</div>
+	</div>
+
+
+	<!-- Additional Menu -->
+	<div class="twelve columns">
+		<div id="additional-menu">
+			<ul>
+				
+			</ul>
+		</div>
+	</div>
+
+
+	<!-- Shopping Cart -->
+	<div class="twelve columns">
+
+		<div id="cart">
+
+			<!-- Button -->
+			<div class="cart-btn">
+				<a href="{% url 'producto:get_cart' %}" class="button adc">Cart</a>
+			</div>
+
+			<!--<div class="cart-list">
+
+			<div class="arrow"></div>
+
+				<div class="cart-amount">
+					<span>2 items in the shopping cart</span>
+				</div>
+
+					<ul>
+						<li>
+							<a href="#"><img src="images/small_product_list_08.jpg" alt="" /></a>
+							<a href="#">Converse All Star Trainers</a>
+							<span>1 x $79.00</span>
+							<div class="clearfix"></div>
+						</li>
+
+						<li>
+							<a href="#"><img src="images/small_product_list_09.jpg" alt="" /></a>
+							<a href="#">Tommy Hilfiger <br /> Shirt Beat</a>
+							<span>1 x $99.00</span>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+
+				<div class="cart-buttons button">
+					<a href="{% url 'producto:get_cart' %}" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a>
+					
+				</div>
+				<div class="clearfix">
+
+				</div>
+			</div>-->
+
+		</div>
+
+		<!-- Search -->
+		<nav class="top-search">
+			<form action="#" method="get">
+				<button><i class="fa fa-search"></i></button>
+				<input class="search-field" type="text" placeholder="Search" value=""/>
+			</form>
+		</nav>
+
+	</div>
+
+</div>
+	{% endblock%}
+
+	{% block slide%}
+
+<div class="container">
+	<div class="sixteen columns">
+		
+		<a href="/" class="menu-trigger"><i class="fa fa-bars"></i> Menu</a>
+
+		<nav id="navigation">
+			<ul class="menu" id="responsive">
+
+				<li><a href="/" class="current homepage" id="current">Home</a></li>
+
+				<!--<li class="dropdown">
+					<a href="#">Shop</a>
+					<ul>
+						<li><a href="shop-with-sidebar.html">Shop With Sidebar</a></li>
+						<li><a href="shop-with-adv-search.html">Shop With Adv. Search</a></li>
+						<li><a href="shop-full-width.html">Shop Full Width</a></li>
+						<li><a href="checkout-billing-details.html">Checkout Pages</a></li>
+						<li><a href="shop-categories-grid.html">Categories Grid</a></li>
+						<li><a href="single-product-page.html">Single Product Page</a></li>
+						<li><a href="variable-product-page.html">Variable Product Page</a></li>
+						<li><a href="wishlist.html">Wishlist Page</a></li>
+						<li><a href="shopping-cart.html">Shopping Cart</a></li>
+					</ul>
+				</li> -->
+
+				<li class="dropdown">
+					<a href="#">CATEGORIA</a>
+					<ul>
+						<li><a href="{% url 'home:mostrar_herramienta' %}">Herramienta</a></li>
+						<li><a href="{% url 'home:mostrar_maquinaria' %}">Maquinaria</a></li>
+					</ul> 
+				</li>
+
+
+				<li class="dropdown">
+					<a href="{% url 'home:mostrar_quienes' %}">QUIENES SOMOS </a>
+					
+				</li>
+
+
+				<li class="dropdown">
+					<a href="{% url 'home:mostrar_contactos' %}">CONTACTOS</a>
+					<!--<ul>
+						<li><a href="portfolio-3-columns.html">3 Columns</a></li>
+						<li><a href="portfolio-4-columns.html">4 Columns</a></li>
+						<li><a href="portfolio-dynamic-grid.html">Dynamic Grid</a></li>
+						<li><a href="single-project.html">Single Project</a></li>
+					</ul> -->
+				</li>
+				<li class="dropdown">
+					<a href="#">Administrar</a>
+					<ul>
+						<li><a href="{% url 'producto:producto_listar' %}">Productos</a></li>
+						<li><a href="{% url 'cliente:cliente_listar' %}">Clientes</a></li>
+					</ul> 
+				</li>
+				
+
+				
+					
+				
+
+				<!--<li class="dropdown">
+					<a href="#">Blog</a>
+					<ul>
+						<li><a href="blog-standard.html">Blog Standard</a></li>
+						<li><a href="blog-masonry.html">Blog Masonry</a></li>
+						<li><a href="blog-single-post.html">Single Post</a></li>
+					</ul>
+				</li>
+
+
+				<li class="demo-button">
+				  <a href="#">Get This Theme</a>
+				</li>-->
+				{% if user.is_authenticated %}
+					
+				<li class="pull-right"><a class="logout" href="{% url 'cliente:logout' %}"><i class="fa fa-sign-out"></i>Log Out</a></li>
+				{% endif %}
+
+			</ul>
+		</nav>
+	{% block contenido7 %}
+	{% endblock %}
+	</div>
+</div>
+	{% endblock %}
+
+	{% block contenido1 %}
+	{% endblock %}
+
+	{% block contenido2 %}
+	{% endblock %}
+
+	{% block contenido3 %}
+	{% endblock %}
+
+	{% block contenido4 %}
+	{% endblock %}
+
+	{% block contenido5 %}
+	{% endblock %}
+
+	{% block contenido6 %}
+	{% endblock %}
+
+
+	{% block footer %}
+		<!-- Style Switcher
+================================================== -->
+<script src="{% static 'scripts/switcher.js' %}"></script>
+
+
+
+<!-- Footer
+================================================== -->
+<div id="footer">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="four columns">
+			<img src="{% static 'images/carretilla.gif' %}" alt="" class="margin-top-5"/>
+			
+		</div>
+
+		<div class="four columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">DIRECCION</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li>Manuel Carrión Pinzano e/</li>
+				<li>Manuel Palacios y Epiclachima </li>
+				<li>frente a la gasolinera  
+				     "La Llave"</li>
+			</ul>
+
+		</div>
+
+		<div class="four columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">CONTACTOS</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li>2575 236</li>
+				<li>099 886 6491</li>
+				<li>099 291 7939</li>
+				<li><i class="fa fa-envelope"></i><a href="mailto:your@email.com">encofradosgranda@gmail.com</a></li>
+			</ul>
+		</div>
+
+		<div class="four columns">
+
+			<!-- Headline -->
+
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+
+<!-- Footer / End -->
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+	<!-- Container -->
+	
+
+		
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / End -->
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+</div>
+
+<!-- Footer / End -->
+
+{% endblock %}
+
+</body>
+</html>

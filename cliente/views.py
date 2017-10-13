@@ -16,7 +16,14 @@ def cliente_nuevo(request):
         cliente_form = ClienteForm(request.POST)   
         if cliente_form.is_valid() and user_form.is_valid():
             user = user_form.save()
-            cliente = cliente_form.save()
+            cliente = Cliente.objects.get(user = user)  
+            print(cliente)
+            # cliente_form.cleaned_data['user'] = user
+            cliente.cedula = cliente_form.cleaned_data['cedula']
+            cliente.direccion = cliente_form.cleaned_data['direccion']
+            cliente.telefono = cliente_form.cleaned_data['telefono']
+            cliente.save()
+            print(cliente)
             messages.success(request, _('Cliente creado correctamente!'))
             return redirect('cliente:cliente_listar')
     else:
@@ -81,7 +88,7 @@ def authentication(request):
         user = authenticate(username = username, password = password)
         if user is not None:
             login(request, user)
-            return response
+            return redirect('producto:producto_listar')
         else:
             messages.error(request, 'Credenciales invalidas')
             return render(request, 'cliente/login.html', context)

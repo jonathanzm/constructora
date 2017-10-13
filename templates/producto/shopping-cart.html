@@ -67,7 +67,7 @@ ENCOFRADOS
 				<td>
 					<form action='#'>
 						<div  item_id="{{item.product.id }}" class="qtyminus"></div>
-						<input id="qty_product{{item.product.id }}" type='text' name="quantity" value='1' class="qty" />
+						<input id="qty_product{{item.product.id }}" type='text' name="quantity" value={{item.quantity}} class="qty" />
 						<div  item_id="{{item.product.id }}" class="qtyplus"></div>
 					</form>
 				</td>
@@ -126,13 +126,14 @@ ENCOFRADOS
 
 <div class="margin-top-40"></div>
 <script type="text/javascript">
+	Calcular_totales();
 
 	function Calcular_totales() {
 
 		var total_item= 0;
 		$(".total_item").each(function(){
 			 console.log($(this).text());
-			 total_item+=+$(this).text();
+			 total_item+=parseFloat($(this).text());
 		});
 		console.log("total de los item"+total_item);
 
@@ -146,30 +147,30 @@ ENCOFRADOS
 	$(".qtyminus").click(function(){
 		var item_id= $(this).attr("item_id");
 		console.log(item_id);
-		var price=$("#price"+item_id).text();
+		var price=parseFloat($("#price"+item_id).text());
 		console.log("precio="+price)
 
-		var cuantity= $("#qty_product"+item_id).val()-1;
+		var cuantity= parseFloat($("#qty_product"+item_id).val())-1;
 		console.log("cantidad"+ cuantity);
 		$("#qty_product"+item_id).val(cuantity);
 
 		var total= cuantity*price;
-		$("#total_item"+item_id).text(total);
+		$("#total_item"+item_id).text(total.toFixed(2));
 		Calcular_totales();
 	});
 
 	$(".qtyplus").click(function(){
 		var item_id= $(this).attr("item_id");
 		console.log(item_id);
-		var price=$("#price"+item_id).text();
+		var price=parseFloat($("#price"+item_id).text());
 		console.log("precio="+price)
 
-		var cuantity= +$("#qty_product"+item_id).val()+1;
+		var cuantity= +parseFloat($("#qty_product"+item_id).val())+1;
 		console.log("cantidad"+ cuantity);
 		$("#qty_product"+item_id).val(cuantity);
 
 		var total= cuantity*price;
-		$("#total_item"+item_id).text(total);
+		$("#total_item"+item_id).text(total.toFixed(2));
 		Calcular_totales();
 
 
